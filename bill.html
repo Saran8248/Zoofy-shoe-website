@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <link rel="stylesheet" href="bill.css">
+</head>
+<body>
+    <div class="calculator">
+        <h3 style="color:sandybrown; font-size:20px; margin-top:-20px;" >Z O F F Y</h3>
+        <hr>
+        <div class="bill-container">
+            <div class="input-section">
+              <h3>Buyer Information</h3>
+              <label for="buyer-name">Name:</label>
+              <input type="text" id="buyer-name"><br>
+              <label for="buyer-number">Number:</label>
+              <input type="text" id="buyer-number"><br>
+              <label for="buyer-address">Address:</label>
+              <textarea id="buyer-address"></textarea>
+            </div>
+            <div class="bill-details">
+              </div>
+          </div>
+          <hr>
+        <div class="item-row">
+            <input type="text" id="item1" placeholder="Item 1">
+            <input type="number" id="quantity1" placeholder="Quantity">
+            <input type="number" id="price1" placeholder="Price">
+        </div>
+        <p>Total: ₹<span id="total">0</span></p>
+        <button onclick="printBill()">Print Bill</button>
+        <hr>
+        <h4>Quality and satisfaction are our top priorities <br>We deliver excellence with every step </h4>
+        <h3 style="color: sandybrown;">THANKS FOR SHOPPING </h3>
+
+    </div>
+    <script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    window.onload = function() {
+        document.getElementById('item1').value = getQueryParam('item') || '';
+        document.getElementById('quantity1').value = getQueryParam('quantity') || '';
+        document.getElementById('price1').value = getQueryParam('price') || '';
+
+        calculateTotal();
+    };
+
+    function calculateTotal() {
+        const quantity1 = parseInt(document.getElementById('quantity1').value) || 0;
+        const price1 = parseFloat(document.getElementById('price1').value) || 0;
+
+        const total = quantity1 * price1;
+        document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+    document.getElementById('quantity1').addEventListener('input', calculateTotal);
+    document.getElementById('price1').addEventListener('input', calculateTotal);
+
+
+    function printBill() {
+  const buyerName = document.getElementById('buyer-name').value;
+  const buyerNumber = document.getElementById('buyer-number').value;
+  const buyerAddress = document.getElementById('buyer-address').value;
+
+  const billDetails = document.querySelector('.bill-details');
+  billDetails.innerHTML = `
+    <h3>Buyer Information</h3>
+    <p>Name: ${buyerName}</p>
+    <p>Number: ${buyerNumber}</p>
+    <p>Address: ${buyerAddress}</p>
+  `;
+
+  window.print();
+}
+</script>
+
+</body>
+</html>

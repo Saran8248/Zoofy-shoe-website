@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #7b2cbf, #d32f2f);
+    color: white;
+    text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #4c0070;
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+    margin-left:100px;
+
+}
+
+.navbar ul li a:hover {
+    color: #ffa500;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    padding: 20px;
+    margin-top: 1px;
+}
+
+.shoe-item {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    color: #333;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shoe-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.shoe-item h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.shoe-item p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.buy-btn {
+    background-color: #4c0070;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #ffa500;
+}
